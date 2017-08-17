@@ -124,3 +124,9 @@ a.block{
 .page-footer{
 	background-color: #75726C;
 }
+
+
+/* ocultar botton star*/
+.classHidden {
+	display: none;
+}
