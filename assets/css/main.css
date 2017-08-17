@@ -130,3 +130,27 @@ a.block{
 .classHidden {
 	display: none;
 }
+.pared {
+	background-color: #0B0A0A;
+}
+.camino {
+	background-color: #FFFFFF;
+	color: #FFFFFF;
+	position: relative;
+	z-index: 1;
+}
+.inicioFin {
+	/*background-color: #F5F805;*/
+	color: #FC0505;
+    height: 20px;
+    width: 25px;
+	z-index: 1;
+}
+.bolita {
+	background-image: url('');
+	background: gold;
+    /* position: relative; */
+    width: 10px;
+    height: 10px;
+    z-index: 2;
+}
