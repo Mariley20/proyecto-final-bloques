@@ -33,28 +33,35 @@ btnStart.onclick = function() {
     //hijos del div
     var tagImg = document.createElement('img');
     // creacion de la etiqueta span
-    var tagSpan_1 = document.createElement('p');
+    var tagP_1 = document.createElement('p');
+    tagP_1.setAttribute("onclick", "dibujarTablero()");
     // a la etiqueta span se añade un texto
-    tagSpan_1.appendChild(document.createTextNode('STAR GAME'));
+    tagP_1.appendChild(document.createTextNode('STAR GAME'));
+    
 
-    var tagSpan_2 = document.createElement('p');
-    tagSpan_2.appendChild(document.createTextNode('PASSWORD'));
-    var tagSpan_3 = document.createElement('p');
-    tagSpan_3.appendChild(document.createTextNode('INSTRUCCIONES'));
-    var tagSpan_4 = document.createElement('p');
-    tagSpan_4.appendChild(document.createTextNode('CREDITS'));
+    var tagP_2 = document.createElement('p');
+    tagP_2.appendChild(document.createTextNode('PASSWORD'));
+    var tagP_3 = document.createElement('p');
+    tagP_3.appendChild(document.createTextNode('INSTRUCCIONES'));
+    var tagP_4 = document.createElement('p');
+    tagP_4.appendChild(document.createTextNode('CREDITS'));
 
     // añadiendo sus hijos al div.
     tagDiv.appendChild(tagImg);
-    tagDiv.appendChild(tagSpan_1);
-    tagDiv.appendChild(tagSpan_2);
-    tagDiv.appendChild(tagSpan_3);
-    tagDiv.appendChild(tagSpan_4);
+    tagDiv.appendChild(tagP_1);
+    tagDiv.appendChild(tagP_2);
+    tagDiv.appendChild(tagP_3);
+    tagDiv.appendChild(tagP_4);
     inicio.appendChild(tagDiv);
 
 }
 var matrizMapa = [];
-dibujarTablero();
+
+var btnIniciarJuego = document.getElementById('iniciarJuego');
+btnIniciarJuego.onclick = function(){
+	dibujarTablero();
+}
+
 
 function dibujarTablero() {
 
