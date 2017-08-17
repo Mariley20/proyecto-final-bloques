@@ -161,6 +161,7 @@ function mover(x, y, direccion) {
 
         if (matrizMapa[nuevo_x][nuevo_y] == "W") {
             alert("Ganaste...!");
+            document.getElementById(nuevo_x + "," + nuevo_y).appendChild(bolita);
             clearTimeout(stop);
         }
     }
