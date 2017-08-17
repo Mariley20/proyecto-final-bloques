@@ -53,6 +53,7 @@ nav{
 	background-color: darksalmon;
 	height: 45px;
 	line-height: 45px;
+	
 }
 
 .juego{
@@ -63,7 +64,7 @@ nav{
 #tablero{
 	position: relative;
 	height: auto;
-	background-color: #EDE9E2;
+	background-color: indianred;
 	padding: 40px;
 }
 #formulario{
@@ -88,7 +89,7 @@ a.block{
 	margin-top: 40px;
 	margin-bottom: 80px;
 }
-#tablero i{
+/*#tablero i{
 	color: #75726C;
 }
 .fila{
@@ -103,12 +104,12 @@ a.block{
 	box-sizing: border-box;
 	float: left;
 	width: 10%;
-	height: 80px;
+	height: 80px;*/
 }
-.empty{	
+/*.empty{	
 	background-color: #75726C;
 }
-
+*/
 /*.taxi{
 	background-color: #E56385;
 	background-image: url(../img/car.png);
@@ -117,9 +118,9 @@ a.block{
 	background-repeat: no-repeat; 
 }
 */
-.visitada{
+/*.visitada{
 	background-color: #E54E79;
-}
+}*/
 
 .page-footer{
 	background-color: #75726C;
@@ -133,32 +134,33 @@ a.block{
 .classHidden {
 	display: none;
 }
-.menuDelJuego{
-	background-color: indianred;
-	padding: 5%;
+/*.menuDelJuego{
+	
 
-}
+
+}*/
+
+/*background-image: url("assets/img/pelota.png");
+	background-image: url("assets/img/pelo.png");*/
 
 .menuDelJuego p{
-	font-family: 'Pacifico', cursive;
-	color:navajowhite;
-	font-size: 30px;
+	font-family: 12em'Pacifico', cursive;
+	font-size: xx-large;
+	letter-spacing: 4px;
+	word-spacing: 10px;
+	text-shadow: 3px 2px palegoldenrod;
+	letter-spacing: 3px;
+	padding: auto;
+	text-transform: uppercase;
+	font-weight: bold;
 	text-align: center;
-	border: 2px solid mediumvioletred;
-    padding: 13px 43px; 
-    background: palevioletred;
-    width: 380px;
-    border-radius: 28px;
-   	position: relative;
-   	left:180px;
-   	top:5px;
-   	bottom: 10px;
-   	cursor: pointer;
-   	/*background-size: */
-	
+	color: navajowhite;
+	cursor:pointer;
+	/*background-image: url("../assets/img/pelota.png");*/
 }
+
 p:hover {
-	background-color: mediumvioletred;
+	color: mediumvioletred;
 
 }
 .menuDelJuego td{
@@ -167,10 +169,10 @@ p:hover {
 }
 /* paredes */
 .pared {
-	background-color: #0B0A0A;
+	background-color: antiquewhite;
 }
 .camino {
-	background-color: #FFFFFF;
+	background-color: burlywood;
 	color: #FFFFFF;
 	position: relative;
 	z-index: 1;
