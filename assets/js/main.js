@@ -137,14 +137,16 @@ function movimiento(evento) {
     }
 }
 var stop;
+
 function mover(x, y, direccion) {
-	var idpadre = document.getElementById('bola').parentNode.id;
+    var idpadre = document.getElementById('bola').parentNode.id;
 
     var idPapa = idpadre.split(',')
     var nuevo_x = parseInt(idPapa[0]) + x;
     var nuevo_y = parseInt(idPapa[1]) + y;
-    if(matrizMapa[nuevo_x][nuevo_y] == '*'){
-    	clearTimeout(stop);
+
+    if (matrizMapa[nuevo_x][nuevo_y] == '*') {
+        clearTimeout(stop);
     }
     if (matrizMapa[nuevo_x][nuevo_y] != '*') {
         /*remover hijos*/
@@ -156,8 +158,15 @@ function mover(x, y, direccion) {
         bolita.className = 'bolita';
         bolita.id = 'bola';
         document.getElementById(nuevo_x + "," + nuevo_y).appendChild(bolita);
+
+        if (matrizMapa[nuevo_x][nuevo_y] == "W") {
+            alert("Ganaste...!");
+            clearTimeout(stop);
+        }
     }
-    var stop = setTimeout(mover(x, y, direccion), 1000);
+
+
+    var stop = setTimeout(mover(x, y, direccion), 3000);
 
 
 }
