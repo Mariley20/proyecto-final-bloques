@@ -36,10 +36,10 @@ btnStart.onclick = function() {
     // creacion de la etiqueta span
     var tagP_1 = document.createElement('p');
     tagP_1.setAttribute("onclick", "dibujarTablero()");
-    
+
     // a la etiqueta span se añade un texto
     tagP_1.appendChild(document.createTextNode('STAR GAME'));
-    
+
 
     var tagP_2 = document.createElement('p');
     tagP_2.appendChild(document.createTextNode('PASSWORD'));
@@ -65,9 +65,9 @@ btnIniciarJuego.onclick = function(){
 }*/
 
 
-function dibujarTablero(){
-	var divtablero = document.getElementById('menu_tablero');
-	divtablero.removeAttribute('class');
+function dibujarTablero() {
+    var divtablero = document.getElementById('menu_tablero');
+    divtablero.removeAttribute('class');
     divtablero.className = 'classHidden';
     tagTable = document.createElement('table');
     for (var i = 0; i < mapa.length; i++) {
@@ -136,17 +136,28 @@ function movimiento(evento) {
             break;
     }
 }
-
+var stop;
 function mover(x, y, direccion) {
-    var idpadre = document.getElementById('bola').parentNode.id;
+	var idpadre = document.getElementById('bola').parentNode.id;
+
     var idPapa = idpadre.split(',')
-    var xa = idPapa[0];
-    var yb = idPapa[1];
-    //console.log(idPapa);
-    console.log(matrizMapa[xa[0]][yb[1]]); //o
-    if (matrizMapa[xa + x][yb + y] == '_') {
-        ((xa + x) + ',' + (yb + y)).className = 'imagenes';
+    var nuevo_x = parseInt(idPapa[0]) + x;
+    var nuevo_y = parseInt(idPapa[1]) + y;
+    if(matrizMapa[nuevo_x][nuevo_y] == '*'){
+    	clearTimeout(stop);
     }
+    if (matrizMapa[nuevo_x][nuevo_y] != '*') {
+        /*remover hijos*/
+        var list = document.getElementById(idpadre);
+        while (list.hasChildNodes()) {
+            list.removeChild(list.firstChild);
+        } /**/
+        var bolita = document.createElement('div');
+        bolita.className = 'bolita';
+        bolita.id = 'bola';
+        document.getElementById(nuevo_x + "," + nuevo_y).appendChild(bolita);
+    }
+    var stop = setTimeout(mover(x, y, direccion), 1000);
 
 
 }
