@@ -29,12 +29,14 @@ btnStart.onclick = function() {
     btnStart.className = 'classHidden';
     // .. creacion de la etiqueta div
     var tagDiv = document.createElement('div');
+    tagDiv.setAttribute("id", "menu_tablero");
     tagDiv.className = "menuDelJuego";
     //hijos del div
     var tagImg = document.createElement('img');
     // creacion de la etiqueta span
     var tagP_1 = document.createElement('p');
     tagP_1.setAttribute("onclick", "dibujarTablero()");
+    
     // a la etiqueta span se añade un texto
     tagP_1.appendChild(document.createTextNode('STAR GAME'));
     
@@ -56,15 +58,17 @@ btnStart.onclick = function() {
 
 }
 var matrizMapa = [];
-
+/*
 var btnIniciarJuego = document.getElementById('iniciarJuego');
 btnIniciarJuego.onclick = function(){
 	dibujarTablero();
-}
+}*/
 
 
-function dibujarTablero() {
-
+function dibujarTablero(){
+	var divtablero = document.getElementById('menu_tablero');
+	divtablero.removeAttribute('class');
+    divtablero.className = 'classHidden';
     tagTable = document.createElement('table');
     for (var i = 0; i < mapa.length; i++) {
         var pared = mapa[i].split("");
