@@ -50,13 +50,13 @@ nav{
 
 .principal .caja-blanca .btn-big{
 	border-radius: 15px;
-	background-color: #E56385;
+	background-color: darksalmon;
 	height: 45px;
 	line-height: 45px;
 }
 
 .juego{
-	background-color: #00B2A9;
+	background-color:salmon;
 	padding: 40px 0;
 }
 
@@ -109,14 +109,14 @@ a.block{
 	background-color: #75726C;
 }
 
-.taxi{
+/*.taxi{
 	background-color: #E56385;
 	background-image: url(../img/car.png);
 	background-size: contain;
 	background-position: center 6px ;
 	background-repeat: no-repeat; 
 }
-
+*/
 .visitada{
 	background-color: #E54E79;
 }
@@ -124,9 +124,42 @@ a.block{
 .page-footer{
 	background-color: #75726C;
 }
+/*Implementacion de la decoración del juego*/
+#start-button {
+	background-color: salmon;
 
-
+}
 /* ocultar botton star*/
 .classHidden {
 	display: none;
 }
+
+.menuDelJuego{
+	background-color: indianred;
+	padding: 5%;
+
+}
+
+.menuDelJuego p{
+	font-family: 'Pacifico', cursive;
+	color:navajowhite;
+	font-size: 30px;
+	text-align: center;
+	border: 2px solid mediumvioletred;
+    padding: 13px 43px; 
+    background: palevioletred;
+    width: 380px;
+    border-radius: 28px;
+   	position: relative;
+   	left:180px;
+   	top:5px;
+   	bottom: 10px;
+   	cursor: pointer;
+   	/*background-size: */
+	
+}
+p:hover {
+	background-color: mediumvioletred;
+
+}
+
