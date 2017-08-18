@@ -1,30 +1,33 @@
-mapa = ["*************************************************",
-    "*_______________________________________________*",
-    "*_______________________________________________*",
-    "*______**o________***________________**W________*",
-    "*_________________***_________________*_________*",
-    "*_________________*______________*______________*",
-    "*_________________*_____________________*_______*",
-    "*____*__*_____________________*___*_____*_______*",
-    "*_____*_*____________________****_*_____________*",
-    "*_____*_________________________________*_______*",
-    "*______________________________________**_______*",
-    "*________________________**____________**_______*",
-    "*_________________________*_____________________*",
-    "*_____________**_*_______***____________________*",
-    "*_____________***_______________________________*",
-    "*_____________**__________________**____________*",
-    "*______**_________________________**____________*",
-    "*______**_________________________*_____________*",
-    "*________*____________**________________________*",
-    "*____________________***________________________*",
-    "*___________________*_**________________________*",
-    "*_______________________________________________*",
+mapa = [
+    "*************************************************",
+    "*                                               *",
+    "*                                               *",
+    "*      **o        ***                **W        *",
+    "*                 ***                 *         *",
+    "*                 *              *              *",
+    "*                 *                     *       *",
+    "*    *  *                     *   *     *       *",
+    "*     * *                    **** *             *",
+    "*     *                                 *       *",
+    "*                                      **       *",
+    "*                        **            **       *",
+    "*                         *                     *",
+    "*             ** *       ***                    *",
+    "*             ***                               *",
+    "*             **                  **            *",
+    "*      **                         **            *",
+    "*      **                         *             *",
+    "*        *            **                        *",
+    "*                    ***                        *",
+    "*                   * **                        *",
+    "*                                               *",
     "*************************************************"
 ];
-var btnStart = document.getElementById('start-button');
-btnStart.onclick = function() {
 
+document.getElementById('start-button').addEventListener("click", menuJuego)
+
+function menuJuego() {
+    var btnStart = document.getElementById('start-button');
     btnStart.removeAttribute('class');
     btnStart.className = 'classHidden';
     // .. creacion de la etiqueta div
@@ -33,19 +36,21 @@ btnStart.onclick = function() {
     tagDiv.className = "menuDelJuego";
     //hijos del div
     var tagImg = document.createElement('img');
-    // creacion de la etiqueta span
+    // creacion de la etiqueta p
     var tagP_1 = document.createElement('p');
-    tagP_1.setAttribute("onclick", "dibujarTablero()");
-
-    // a la etiqueta span se añade un texto
+    tagP_1.setAttribute("id", "dibujarTablero1");
     tagP_1.appendChild(document.createTextNode('STAR GAME'));
 
-
     var tagP_2 = document.createElement('p');
+    tagP_2.id = 'password';
     tagP_2.appendChild(document.createTextNode('PASSWORD'));
+
     var tagP_3 = document.createElement('p');
+    tagP_3.id = "instrucciones";
     tagP_3.appendChild(document.createTextNode('INSTRUCCIONES'));
+
     var tagP_4 = document.createElement('p');
+    tagP_4.id = "creditos";
     tagP_4.appendChild(document.createTextNode('CREDITS'));
 
     // añadiendo sus hijos al div.
@@ -56,19 +61,21 @@ btnStart.onclick = function() {
     tagDiv.appendChild(tagP_4);
     inicio.appendChild(tagDiv);
 
+    document.getElementById('dibujarTablero1').addEventListener("click", dibujarTablero);
+    document.getElementById('password').addEventListener("click", password);
+    document.getElementById('instrucciones').addEventListener("click", instrucciones);
+    document.getElementById('creditos').addEventListener("click", creditos);
 }
 var matrizMapa = [];
-/*
-var btnIniciarJuego = document.getElementById('iniciarJuego');
-btnIniciarJuego.onclick = function(){
-	dibujarTablero();
-}*/
 
-
-function dibujarTablero() {
+function ocultarMenuTablero() {
     var divtablero = document.getElementById('menu_tablero');
     divtablero.removeAttribute('class');
     divtablero.className = 'classHidden';
+}
+
+function dibujarTablero() {
+    ocultarMenuTablero();
     tagTable = document.createElement('table');
     for (var i = 0; i < mapa.length; i++) {
         var pared = mapa[i].split("");
@@ -81,15 +88,10 @@ function dibujarTablero() {
             var clase = '';
             if (pared[j] == "*") {
                 clase = 'pared';
-            } else if (pared[j] == "_") {
-                clase = 'camino    ';
+            } else if (pared[j] == " ") {
+                clase = 'camino';
             } else if (pared[j] == "o") {
-                clase = 'inicioFin';
-                var bolita = document.createElement('div');
-                bolita.className = 'bolita';
-                bolita.id = 'bola';
-                tag_TD.appendChild(bolita);
-
+                clase = 'bolita';
             } else {
                 clase = 'inicioFin';
             }
@@ -101,6 +103,74 @@ function dibujarTablero() {
     inicio.appendChild(tagTable);
 }
 
+function instrucciones() {
+    var texto = "Encuentra al Principe es un juego sencillo." +
+        "Donde usted intenta encontrar al principe de sus sueños." +
+        "La meta:" +
+        "guiar a la princesa con las flechas. la princesa continuara su trayectoria hasta que sea detinida por una pared." +
+        "Simbolo I:" +
+        "Este simbolo actua como un tunel, el cual la princesa pasa atravez de el, y le llevara a otra parte del tablero." +
+        "todo sea por encontrar al principe." +
+        "Cada nivel tiene una contraseña(password) utilizalos para continuar de acuerdo al nivel donde te quedaste." +
+        "!Buena suerte Princesa, la hora a llegado¡";
+    ocultarMenuTablero();
+    var tagDiv = document.createElement('div');
+    var tagP_1 = document.createElement('p');
+    tagP_1.appendChild(document.createTextNode(texto));
+    tagDiv.appendChild(tagP_1);
+
+    inicio.appendChild(tagDiv);
+}
+function password(){
+    ocultarMenuTablero();
+    var tagDiv = document.createElement('div');
+    var input = document.createElement('input');
+    input.type = 'text';
+    input.id = 'passwordNivel'
+    var button = document.createElement('button');
+    button.id = 'irNivel';
+    button.appendChild(document.createTextNode('ir'))
+
+    tagDiv.appendChild(input);
+    tagDiv.appendChild(button);
+
+    inicio.appendChild(tagDiv);
+}
+function creditos(){
+    ocultarMenuTablero();
+    var tagDiv = document.createElement('div');
+    var tagP_1 = document.createElement('p');
+    tagP_1.appendChild(document.createTextNode('Maquetacion & javascript'))
+    var tagP_2 = document.createElement('p');
+    tagP_2.appendChild(document.createTextNode('Jackeline'));
+    var tagP_3 = document.createElement('p');
+    tagP_3.appendChild(document.createTextNode('Mariley'));
+
+    var tagP_4 = document.createElement('p');
+    tagP_4.appendChild(document.createTextNode('Jedi Master'))
+    var tagP_5 = document.createElement('p');
+    tagP_5.appendChild(document.createTextNode('Alex'));
+    var tagP_6 = document.createElement('p');
+    tagP_6.appendChild(document.createTextNode('Sheyla'));
+
+    var tagImg = document.createElement('img');
+    tagImg.src = 'assets/img/logo.png';
+
+    // hijos
+    tagDiv.appendChild(tagP_1);
+    tagDiv.appendChild(tagP_2);
+    tagDiv.appendChild(tagP_3);
+    tagDiv.appendChild(tagP_4);
+    tagDiv.appendChild(tagP_5);
+    tagDiv.appendChild(tagP_6);
+    tagDiv.appendChild(tagImg);
+
+    inicio.appendChild(tagDiv);
+}
+
+//evento 
+document.addEventListener("keydown", movimiento);
+
 //keycode de las teclas
 var teclas = {
     UP: 38,
@@ -109,65 +179,50 @@ var teclas = {
     RIGHT: 39
 };
 
-//evento 
-document.addEventListener("keydown", movimiento);
-
-
-
-//variables constantes
-const izquierda = 0;
-const derecha = 2;
-const arriba = 1;
-const abajo = 3;
-
 function movimiento(evento) {
     switch (evento.keyCode) {
         case teclas.UP:
-            mover(-1, 0, arriba);
+            mover(-1, 0);
             break;
         case teclas.DOWN:
-            mover(1, 0, abajo);
+            mover(1, 0);
             break;
         case teclas.LEFT:
-            mover(0, -1, izquierda);
+            mover(0, -1);
             break;
         case teclas.RIGHT:
-            mover(0, 1, derecha);
+            mover(0, 1);
             break;
     }
 }
 var stop;
 
-function mover(x, y, direccion) {
-    var idpadre = document.getElementById('bola').parentNode.id;
-
+function mover(x, y) {
+    var idpadre = document.getElementsByClassName('bolita')[0].id;
     var idPapa = idpadre.split(',')
     var nuevo_x = parseInt(idPapa[0]) + x;
     var nuevo_y = parseInt(idPapa[1]) + y;
 
     if (matrizMapa[nuevo_x][nuevo_y] == '*') {
         clearTimeout(stop);
+        return;
     }
     if (matrizMapa[nuevo_x][nuevo_y] != '*') {
-        /*remover hijos*/
-        var list = document.getElementById(idpadre);
-        while (list.hasChildNodes()) {
-            list.removeChild(list.firstChild);
-        } /**/
-        var bolita = document.createElement('div');
-        bolita.className = 'bolita';
-        bolita.id = 'bola';
-        document.getElementById(nuevo_x + "," + nuevo_y).appendChild(bolita);
+        var antiguaPosicion = document.getElementById(idpadre);
+        antiguaPosicion.removeAttribute('class');
+        antiguaPosicion.className = 'camino';
 
-        if (matrizMapa[nuevo_x][nuevo_y] == "W") {
-            alert("Ganaste...!");
-            document.getElementById(nuevo_x + "," + nuevo_y).appendChild(bolita);
+        var nuevaPosicion = document.getElementById(nuevo_x + "," + nuevo_y);
+        nuevaPosicion.removeAttribute('class');
+        nuevaPosicion.className = 'bolita';
+
+        if (matrizMapa[nuevo_x][nuevo_y] == 'W') {
             clearTimeout(stop);
+            alert('ganaste...')
+            return;
         }
     }
-
-
-    var stop = setTimeout(mover(x, y, direccion), 3000);
-
-
+    stop = setTimeout(function() {
+        mover(x, y)
+    }, 100);
 }

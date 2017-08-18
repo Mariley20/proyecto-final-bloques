@@ -163,9 +163,9 @@ p:hover {
 	color: mediumvioletred;
 
 }
-.menuDelJuego td{
-	padding: 0;
-	margin: 0;
+.inicioJuego table tr td{
+	
+
 }
 /* paredes */
 .pared {
@@ -176,18 +176,18 @@ p:hover {
 	color: #FFFFFF;
 	position: relative;
 	z-index: 1;
+	width: 50px;
+	height: 20px;
 }
 .inicioFin {
 	/*background-color: #F5F805;*/
 	color: #FC0505;
-    height: 20px;
-    width: 25px;
 	z-index: 1;
 }
 .bolita {
-	background-image: url('../assets/img/ball.png');
-	background: gold;
-    /* position: relative; */
+	background-image: url('../img/ball.png');
+	/* background: gold;
+    position: relative; */
     width: 10px;
     height: 10px;
     z-index: 2;
