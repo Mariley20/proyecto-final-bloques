@@ -71,7 +71,7 @@ function mostrarMenuTablero() {
 }
 
 function instrucciones() {
-    var texto = "Encuentra a la familia.  Usa las teclas direccionales del teclado para llegar a la meta";
+    var texto = "Encuentra a la familia." + " " +  "Usa las teclas direccionales del teclado para llegar a la meta.";
     ocultarMenuTablero();
     var tagDiv = document.createElement('div');
     var tagP_1 = document.createElement('p');
@@ -103,6 +103,7 @@ function password() {
 function creditos() {
     ocultarMenuTablero();
     var tagDiv = document.createElement('div');
+    tagDiv.className="texCreditos";
     var tagP_1 = document.createElement('p');
     tagP_1.appendChild(document.createTextNode('Maquetacion & javascript'))
     var tagP_2 = document.createElement('p');
