@@ -266,8 +266,7 @@ function mover(x, y) {
 
     /*perdiste vuelve al inicio*/
     if (nuevo_x == '0' || nuevo_x == (matrizMapa.length - 1) || nuevo_y == '0' || nuevo_y == (matrizMapa[nuevo_x].length - 1)) {
-        console.log('perdiste');
-        console.log(matrizMapa)
+        sweetAlert("Fallaste!!!", "Vuelve a Intentarlo", "error");
 
         var hijos = inicio.childNodes;
         while (hijos.length > 4) {
@@ -293,7 +292,7 @@ function mover(x, y) {
         if (matrizMapa[nuevo_x][nuevo_y] == 'W') {
             clearTimeout(stop);
 
-            swal("Eres genial!", "Buen Trabajo", "success")
+            swal("Eres genial!!!", "Pasaste al siguiente nivel", "success")
             actualmapa++;
             var hijos = inicio.childNodes;
             while (hijos.length > 4) {
