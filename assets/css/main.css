@@ -170,9 +170,11 @@ p:hover {
 /* paredes */
 .pared {
 	background-color: antiquewhite;
+	background-image: url('../img/casa.png');
+	background-repeat: no-repeat;
 }
 .camino {
-	background-color: burlywood;
+	background-color: green;
 	color: #FFFFFF;
 	position: relative;
 	z-index: 1;
@@ -181,13 +183,14 @@ p:hover {
 }
 .inicioFin {
 	/*background-color: #F5F805;*/
+	background-image: url('../img/familia.png');
+	background-repeat: no-repeat;
 	color: #FC0505;
 	z-index: 1;
 }
 .bolita {
-	background-image: url('../img/ball.png');
-	/* background: gold;
-    position: relative; */
+	background-image: url('../img/coche.png');
+	background-repeat: no-repeat;
     width: 10px;
     height: 10px;
     z-index: 2;

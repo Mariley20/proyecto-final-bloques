@@ -191,7 +191,7 @@ function dibujarTablero() {
         tagTable.appendChild(tag_TR);
     }
     inicio.appendChild(tagTable);
-    matrizMapa = matrix;
+    matrizMapa = matrix; //limpio matriz final
 }
 
 //evento 
@@ -223,27 +223,30 @@ function movimiento(evento) {
 }
 var stop;
 
+// funcion mover izquierda derecha, arriba abojo
 function mover(x, y) {
     var idpadre = document.getElementsByClassName('bolita')[0].id;
     var idPapa = idpadre.split(',')
     var nuevo_x = parseInt(idPapa[0]) + x;
     var nuevo_y = parseInt(idPapa[1]) + y;
-    console.log(nuevo_x + '==' +(matrizMapa.length - 1))
+
+    /*perdiste vuelve al inicio*/
     if (nuevo_x == '0' || nuevo_x == (matrizMapa.length - 1) || nuevo_y == '0' || nuevo_y == (matrizMapa[nuevo_x].length - 1)) {
         console.log('perdiste');
         console.log(matrizMapa)
-        
+
         var hijos = inicio.childNodes;
-        console.log(hijos)
         while (hijos.length > 4) {
             inicio.removeChild(inicio.lastChild);
         }
         dibujarTablero();
     }
+    /*llegaste a un bloque detenido*/
     if (matrizMapa[nuevo_x][nuevo_y] == '*') {
         clearTimeout(stop);
         return;
     }
+    /*avanza hasta llegar a un bloque*/
     if (matrizMapa[nuevo_x][nuevo_y] != '*') {
         var antiguaPosicion = document.getElementById(idpadre);
         antiguaPosicion.removeAttribute('class');
@@ -259,7 +262,8 @@ function mover(x, y) {
             return;
         }
     }
+    /*ejecuta nuevamente la funcion mover*/
     stop = setTimeout(function() {
         mover(x, y)
-    }, 3);
+    }, 1);
 }
