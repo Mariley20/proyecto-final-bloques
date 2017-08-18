@@ -1,194 +1,224 @@
-/*
-Colors: 
-#E54E79;
-#E56385;
-#00B2A9;
-#75726C;
-#EDE9E2
-*/
-body{
-	font-family: 'Raleway', sans-serif;
-}
+	/*
+	Colors: 
+	#E54E79;
+	#E56385;
+	#00B2A9;
+	#75726C;
+	#EDE9E2
+	*/
+	body{
+		font-family: 'Raleway', sans-serif;
+	}
 
-nav{
-	background-color: #E54E79;
-}
-.brand-logo img{
-	width: 60px;
-	margin-top: 10px;
-}
-.principal{
-	height: 100vh;
-	background-image: url(http://ridesharecodes.com/wp-content/uploads/2017/02/cropped-Lyft-Promo-Codes-car-1.jpg);
-	background-attachment: fixed;
-	background-size: cover;
-	background-position: center;
-	position: relative;
-}
-.principal .caja-blanca{
-	background-color: rgba(237,233,226,1);
-	position: absolute;
-	right: 0;
-	top: 16%;
-	box-sizing: border-box;
-	padding: 40px 60px 50px 40px;
-}
+	nav{
+		background-color: #E54E79;
+	}
+	.brand-logo img{
+		width: 60px;
+		margin-top: 10px;
+	}
+	.principal{
+		height: 100vh;
+		background-image: url(http://ridesharecodes.com/wp-content/uploads/2017/02/cropped-Lyft-Promo-Codes-car-1.jpg);
+		background-attachment: fixed;
+		background-size: cover;
+		background-position: center;
+		position: relative;
+	}
+	.principal .caja-blanca{
+		background-color: rgba(237,233,226,1);
+		position: absolute;
+		right: 0;
+		top: 16%;
+		box-sizing: border-box;
+		padding: 40px 60px 50px 40px;
+	}
 
-.principal .caja-blanca h2{
-	text-transform: uppercase;
-	font-weight: bold;
-	color: #00B2A9;;
-	font-size: 1.8em;
-}
+	.principal .caja-blanca h2{
+		text-transform: uppercase;
+		font-weight: bold;
+		color: #00B2A9;;
+		font-size: 1.8em;
+	}
 
-.principal .caja-blanca h3{
-	text-transform: uppercase;
-	font-weight: 300;
-	color: #75726C;
-	font-size: 1em;
-}
+	.principal .caja-blanca h3{
+		text-transform: uppercase;
+		font-weight: 300;
+		color: #75726C;
+		font-size: 1em;
+	}
 
-.principal .caja-blanca .btn-big{
-	border-radius: 15px;
-	background-color: darksalmon;
-	height: 45px;
-	line-height: 45px;
-	
-}
+	.principal .caja-blanca .btn-big{
+		border-radius: 15px;
+		background-color: darksalmon;
+		height: 45px;
+		line-height: 45px;
 
-.juego{
-	background-color:salmon;
-	padding: 40px 0;
-}
+	}
 
-#tablero{
-	position: relative;
-	height: auto;
-	background-color: indianred;
-	padding: 40px;
-}
-#formulario{
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	
-}
-a.block{
-	display: block;
-	border-radius: 15px;
-}
-.h2-play{
-	background-color: #EDE9E2;
-	padding: 20px;
-	text-transform: uppercase;
-	font-weight: bold;
-	text-align: center;
-	color: #75726C;
-	margin-top: 40px;
-	margin-bottom: 80px;
-}
-/*#tablero i{
-	color: #75726C;
-}
-.fila{
-
-}
-.fila:before, .fila:after{
-	content: "";
-	display: block;
-	clear: both;
-}
-.taxi, .empty, .visitada{
-	box-sizing: border-box;
-	float: left;
-	width: 10%;
-	height: 80px;*/
-}
-/*.empty{	
-	background-color: #75726C;
-}
-*/
-/*.taxi{
-	background-color: #E56385;
-	background-image: url(../img/car.png);
-	background-size: contain;
-	background-position: center 6px ;
-	background-repeat: no-repeat; 
-}
-*/
-/*.visitada{
-	background-color: #E54E79;
-}*/
-
-.page-footer{
-	background-color: #75726C;
-}
-/*Implementacion de la decoración del juego*/
-#start-button {
-	background-color: salmon;
-
-}
-/* ocultar botton star*/
-.classHidden {
-	display: none;
-}
-/*.menuDelJuego{
-	
+	.juego{
+		background-color:salmon;
+		padding: 40px 0;
+	}
 
 
-}*/
 
-/*background-image: url("assets/img/pelota.png");
-	background-image: url("assets/img/pelo.png");*/
+	#tablero{
+		position: relative;
+		height: auto;
+		background-color: indianred;
+		padding: 40px;
+		border: 70px solid transparent;
+		padding: 15px;
+		border-image: url("../img/border10a.png") 80 round;
+		background-image: url("../img/carrito.png");
+		background-repeat: no-repeat;
+	}
+	#formulario{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
 
-.menuDelJuego p{
-	font-family: 12em'Pacifico', cursive;
-	font-size: xx-large;
-	letter-spacing: 4px;
-	word-spacing: 10px;
-	text-shadow: 3px 2px palegoldenrod;
-	letter-spacing: 3px;
-	padding: auto;
-	text-transform: uppercase;
-	font-weight: bold;
-	text-align: center;
-	color: navajowhite;
-	cursor:pointer;
-	/*background-image: url("../assets/img/pelota.png");*/
-}
+	}
+	a.block{
+		display: block;
+		border-radius: 15px;
+	}
+	.h2-play{
+		background-color: #EDE9E2;
+		padding: 20px;
+		text-transform: uppercase;
+		font-weight: bold;
+		text-align: center;
+		color: #75726C;
+		margin-top: 40px;
+		margin-bottom: 80px;
+	}
 
-p:hover {
-	color: mediumvioletred;
+	.page-footer{
+		background-color: #75726C;
+	}
+	/*Implementacion de la decoración del juego*/
+	#start-button {
+		background-color: salmon;
 
-}
-.inicioJuego table tr td{
-	
+		font-size: xx-large;
+		letter-spacing: 5px;
+		word-spacing: 10px;
+		text-transform: uppercase;
+		font-weight: bold;
+		text-align: center;
+		color: #173b49;
 
-}
-/* paredes */
-.pared {
-	background-color: antiquewhite;
-}
-.camino {
-	background-color: burlywood;
-	color: #FFFFFF;
-	position: relative;
-	z-index: 1;
-	width: 50px;
-	height: 20px;
-}
-.inicioFin {
-	/*background-color: #F5F805;*/
-	color: #FC0505;
-	z-index: 1;
-}
-.bolita {
-	background-image: url('../img/ball.png');
-	/* background: gold;
-    position: relative; */
-    width: 10px;
-    height: 10px;
-    z-index: 2;
-}
+	}
+	#start-button:hover {
+		color: #00a19e;
+
+	}
+	/* ocultar botton star*/
+	.classHidden {
+		display: none;
+	}
+
+
+	.menuDelJuego p{
+		font-family: 12em'Pacifico', cursive;
+		font-size: xx-large;
+		letter-spacing: 4px;
+		word-spacing: 10px;
+		text-shadow: 3px 2px palegoldenrod;
+		letter-spacing: 3px;
+		padding: auto;
+		text-transform: uppercase;
+		font-weight: bold;
+		text-align: center;
+		color: navajowhite;
+		cursor:pointer;
+
+	}
+
+	p:hover {
+		color: #00a19e;
+
+	}
+
+	#volverMenu {
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 12em'Pacifico', cursive;
+    font-weight: 800;
+    font-size: 25px;
+    color: #896980;
+    background-color: khaki;
+    border-radius: 15px;
+    border: 3px double #006505;
+    margin:10px;
+    position: relative;
+    left: 400px;
+
+
+	}
+
+	.goback{
+	padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 12em'Pacifico', cursive;
+    font-weight: 800;
+    font-size: 25px;
+    color: #896980;
+    background-color: khaki;
+    border-radius: 15px;
+    border: 3px double #006505;
+    margin:10px;
+    position: relative;
+    left: 400px;
+
+	}
+
+	#passwordNivel{
+		color: khaki;
+		font-family: 12em'Pacifico', cursive;
+		font-size: xx-large;
+	}
+
+	.instrucciones p{
+
+    font-family: 12em'Pacifico', cursive;
+    font-size: x-large;
+    text-align: : justify;
+    color:white;
+
+	}
+
+	.inicioJuego table tr td{
+
+
+	}
+	/* paredes */
+	.pared {
+		background-color: antiquewhite;
+	}
+	.camino {
+		background-color: burlywood;
+		color: #FFFFFF;
+		position: relative;
+		z-index: 1;
+		width: 50px;
+		height: 20px;
+	}
+	.inicioFin {
+
+		color: #FC0505;
+		z-index: 1;
+	}
+	.bolita {
+		background-image: url('../img/ball.png');
+
+		width: 10px;
+		height: 10px;
+		z-index: 2;
+	}

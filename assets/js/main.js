@@ -124,22 +124,23 @@ function dibujarTablero() {
 }
 
 function instrucciones() {
-    var texto = "Encuentra al Principe es un juego sencillo." +
-        "Donde usted intenta encontrar al principe de sus sueños." +
+    var texto = "Encuentra al Principe es un juego sencillo." +"Donde usted intenta encontrar al principe de sus sueños." +
         "La meta:" +
         "guiar a la princesa con las flechas. la princesa continuara su trayectoria hasta que sea detinida por una pared." +
         "Simbolo I:" +
         "Este simbolo actua como un tunel, el cual la princesa pasa atravez de el, y le llevara a otra parte del tablero." +
         "todo sea por encontrar al principe." +
         "Cada nivel tiene una contraseña(password) utilizalos para continuar de acuerdo al nivel donde te quedaste." +
-        "!Buena suerte Princesa, la hora a llegado¡";
+        "!Buena suerte Princesa, la hora a llegado!";
     ocultarMenuTablero();
     var tagDiv = document.createElement('div');
     var tagP_1 = document.createElement('p');
     tagP_1.appendChild(document.createTextNode(texto));
     tagDiv.appendChild(tagP_1);
+    tagDiv.className="instrucciones";
 
     inicio.appendChild(tagDiv);
+
 }
 function password(){
     ocultarMenuTablero();
@@ -150,6 +151,7 @@ function password(){
     var button = document.createElement('button');
     button.id = 'irNivel';
     button.appendChild(document.createTextNode('ir'))
+    button.className = 'goback';
 
     tagDiv.appendChild(input);
     tagDiv.appendChild(button);
@@ -238,7 +240,7 @@ function mover(x, y) {
 
         if (matrizMapa[nuevo_x][nuevo_y] == 'W') {
             clearTimeout(stop);
-            alert('ganaste...')
+            swal("Eres genial!", "Buen Trabajo", "success")
             return;
         }
     }
