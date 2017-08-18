@@ -23,10 +23,12 @@ mapa = [
     "*                                               *",
     "*************************************************"
 ];
+var matrizMapa = [];
 
 document.getElementById('start-button').addEventListener("click", menuJuego)
 
 function menuJuego() {
+
     var btnStart = document.getElementById('start-button');
     btnStart.removeAttribute('class');
     btnStart.className = 'classHidden';
@@ -66,12 +68,30 @@ function menuJuego() {
     document.getElementById('instrucciones').addEventListener("click", instrucciones);
     document.getElementById('creditos').addEventListener("click", creditos);
 }
-var matrizMapa = [];
 
 function ocultarMenuTablero() {
     var divtablero = document.getElementById('menu_tablero');
     divtablero.removeAttribute('class');
     divtablero.className = 'classHidden';
+
+    var tagDiv = document.createElement('div');
+    var tagButton = document.createElement('button');
+    tagButton.id = 'volverMenu';
+    tagButton.appendChild(document.createTextNode('Menu'));
+    // hijos del div
+    tagDiv.appendChild(tagButton);
+    inicio.appendChild(tagDiv);
+    document.getElementById('volverMenu').addEventListener('click', mostrarMenuTablero);
+}
+function mostrarMenuTablero(){
+var divtablero = document.getElementById('menu_tablero');
+    divtablero.removeAttribute('class');
+    divtablero.className = 'menuDelJuego';
+
+    var hijos = inicio.childNodes;
+    while(hijos.length > 4){
+        inicio.removeChild(inicio.lastChild);
+    }
 }
 
 function dibujarTablero() {
