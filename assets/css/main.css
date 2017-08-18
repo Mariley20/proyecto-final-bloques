@@ -174,7 +174,7 @@ p:hover {
 	background-repeat: no-repeat;
 }
 .camino {
-	background-color: green;
+	background-color: #04BA04;
 	color: #FFFFFF;
 	position: relative;
 	z-index: 1;
@@ -185,12 +185,14 @@ p:hover {
 	/*background-color: #F5F805;*/
 	background-image: url('../img/familia.png');
 	background-repeat: no-repeat;
-	color: #FC0505;
+	color: transparent;
 	z-index: 1;
+
 }
 .bolita {
 	background-image: url('../img/coche.png');
 	background-repeat: no-repeat;
+	color: transparent;
     width: 10px;
     height: 10px;
     z-index: 2;

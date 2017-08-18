@@ -1,5 +1,6 @@
 var matrizMapa;
 
+/* formulario del menu*/
 document.getElementById('start-button').addEventListener("click", menuJuego)
 
 function menuJuego() {
@@ -134,9 +135,9 @@ function creditos() {
     tagDiv.appendChild(tagImg);
 
     inicio.appendChild(tagDiv);
-}
+} /*fin del formulario del menu*/
 
-mapa = [
+var map0 = [
     "*************************************************",
     "*                                               *",
     "*                                               *",
@@ -161,9 +162,34 @@ mapa = [
     "*                                               *",
     "*************************************************"
 ];
+var map1 = [
+    " * * * * * * * * * * * * * * * * * * * * ",
+    " * *           * * *             * *   * ",
+    " * *             W                 *   * ",
+    " *                           *     *   * ",
+    " *         *                       *   * ",
+    " *   * * * *             *         *   * ",
+    " *     *     * *       *   *       *   * ",
+    " *   * I o   * *         *   * * * *   * ",
+    " *     *     * *   * *  **           I * ",
+    " *   *          *        *         * * * ",
+    " *           * ***   *   *     *   * * * ",
+    " *       *      *        * *       * * * ",
+    " *     * *             ***         * * * ",
+    " * *   *           *     *         *   * ",
+    " *     *   *      *      *     *       * ",
+    " * *        *     *      *         *   * ",
+    " * * * * * * * * * * * * * * * * * * * * "
+];
+
+var mapas = [map0, map1/*, map2, map3, map4, map5, map6*/];
+//var mapa = mapas[6];
+
+var actualmapa = 0;
 
 function dibujarTablero() {
     var matrix = [];
+    var mapa = mapas[actualmapa];
     ocultarMenuTablero();
     var tagTable = document.createElement('table');
     tagTable.id = 'tableroRoad';
@@ -259,6 +285,7 @@ function mover(x, y) {
         if (matrizMapa[nuevo_x][nuevo_y] == 'W') {
             clearTimeout(stop);
             alert('ganaste...')
+            actualmapa++;
             return;
         }
     }
