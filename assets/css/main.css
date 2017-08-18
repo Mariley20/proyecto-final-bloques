@@ -60,9 +60,7 @@
 		background-color:salmon;
 		padding: 40px 0;
 	}
-
-
-
+/* formulario menu */
 	#tablero{
 		position: relative;
 		height: auto;
@@ -73,6 +71,8 @@
 		border-image: url("../img/border10a.png") 80 round;
 		background-image: url("../img/carrito.png");
 		background-repeat: no-repeat;
+		width: 100%;
+		border-radius: 20px;
 	}
 	#formulario{
 		position: absolute;
@@ -207,9 +207,11 @@
 	}
 /* paredes */
 .pared {
-	background-color: antiquewhite;
+	
 	background-image: url('../img/casa.png');
 	background-repeat: no-repeat;
+	
+	/*padding: 10px;*/
 }
 .camino {
 	background-color: #04BA04;
