@@ -163,31 +163,32 @@ var map0 = [
     "*************************************************"
 ];
 var map1 = [
-    " * * * * * * * * * * * * * * * * * * * * ",
-    " * *           * * *             * *   * ",
-    " * *             W                 *   * ",
-    " *                           *     *   * ",
-    " *         *                       *   * ",
-    " *   * * * *             *         *   * ",
-    " *     *     * *       *   *       *   * ",
-    " *   * I o   * *         *   * * * *   * ",
-    " *     *     * *   * *  **           I * ",
-    " *   *          *        *         * * * ",
-    " *           * ***   *   *     *   * * * ",
-    " *       *      *        * *       * * * ",
-    " *     * *             ***         * * * ",
-    " * *   *           *     *         *   * ",
-    " *     *   *      *      *     *       * ",
-    " * *        *     *      *         *   * ",
-    " * * * * * * * * * * * * * * * * * * * * "
+    "* * * * * * * * * * * * * * * * * * * *",
+    "* *           * * *             * *   *",
+    "* *             W                 *   *",
+    "*                           *     *   *",
+    "*         *                       *   *",
+    "*   * * * *             *         *   *",
+    "*     *     * *       *   *       *   *",
+    "*   * I o   * *         *   * * * *   *",
+    "*     *     * *   * *  **           I *",
+    "*   *          *        *         * * *",
+    "*           * ***   *   *     *   * * *",
+    "*       *      *        * *       * * *",
+    "*     * *             ***         * * *",
+    "* *   *           *     *         *   *",
+    "*     *   *      *      *     *       *",
+    "* *        *     *      *         *   *",
+    "* * * * * * * * * * * * * * * * * * * *"
 ];
 
-var mapas = [map0, map1/*, map2, map3, map4, map5, map6*/];
+var mapas = [map0, map1 /*, map2, map3, map4, map5, map6*/ ];
 //var mapa = mapas[6];
 
 var actualmapa = 0;
 
 function dibujarTablero() {
+    console.log(actualmapa);
     var matrix = [];
     var mapa = mapas[actualmapa];
     ocultarMenuTablero();
@@ -208,7 +209,7 @@ function dibujarTablero() {
                 clase = 'camino';
             } else if (pared[j] == "o") {
                 clase = 'bolita';
-            } else {
+            } else if(pared[j] == "W"){
                 clase = 'inicioFin';
             }
             tag_TD.setAttribute('class', clase);
@@ -218,6 +219,9 @@ function dibujarTablero() {
     }
     inicio.appendChild(tagTable);
     matrizMapa = matrix; //limpio matriz final
+    if (actualmapa == mapas.length - 1) {
+        actualmapa = 0;
+    }
 }
 
 //evento 
@@ -256,6 +260,8 @@ function mover(x, y) {
     var nuevo_x = parseInt(idPapa[0]) + x;
     var nuevo_y = parseInt(idPapa[1]) + y;
 
+    console.log(nuevo_y+".-."+nuevo_x);
+
     /*perdiste vuelve al inicio*/
     if (nuevo_x == '0' || nuevo_x == (matrizMapa.length - 1) || nuevo_y == '0' || nuevo_y == (matrizMapa[nuevo_x].length - 1)) {
         console.log('perdiste');
@@ -286,6 +292,11 @@ function mover(x, y) {
             clearTimeout(stop);
             alert('ganaste...')
             actualmapa++;
+            var hijos = inicio.childNodes;
+            while (hijos.length > 4) {
+                inicio.removeChild(inicio.lastChild);
+            }
+            dibujarTablero();
             return;
         }
     }
