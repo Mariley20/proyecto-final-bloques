@@ -198,27 +198,33 @@
 
 
 	}
-	/* paredes */
-	.pared {
-		background-color: antiquewhite;
-	}
-	.camino {
-		background-color: burlywood;
-		color: #FFFFFF;
-		position: relative;
-		z-index: 1;
-		width: 50px;
-		height: 20px;
-	}
-	.inicioFin {
+/* paredes */
+.pared {
+	background-color: antiquewhite;
+	background-image: url('../img/casa.png');
+	background-repeat: no-repeat;
+}
+.camino {
+	background-color: #04BA04;
+	color: #FFFFFF;
+	position: relative;
+	z-index: 1;
+	width: 50px;
+	height: 20px;
+}
+.inicioFin {
+	/*background-color: #F5F805;*/
+	background-image: url('../img/familia.png');
+	background-repeat: no-repeat;
+	color: transparent;
+	z-index: 1;
 
-		color: #FC0505;
-		z-index: 1;
-	}
-	.bolita {
-		background-image: url('../img/ball.png');
-
-		width: 10px;
-		height: 10px;
-		z-index: 2;
-	}
+}
+.bolita {
+	background-image: url('../img/coche.png');
+	background-repeat: no-repeat;
+	color: transparent;
+    width: 10px;
+    height: 10px;
+    z-index: 2;
+}

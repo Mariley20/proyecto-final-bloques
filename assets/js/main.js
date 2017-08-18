@@ -1,34 +1,9 @@
-mapa = [
-    "*************************************************",
-    "*                                               *",
-    "*                                               *",
-    "*      **o        ***                **W        *",
-    "*                 ***                 *         *",
-    "*                 *              *              *",
-    "*                 *                     *       *",
-    "*    *  *                     *   *     *       *",
-    "*     * *                    **** *             *",
-    "*     *                                 *       *",
-    "*                                      **       *",
-    "*                        **            **       *",
-    "*                         *                     *",
-    "*             ** *       ***                    *",
-    "*             ***                               *",
-    "*             **                  **            *",
-    "*      **                         **            *",
-    "*      **                         *             *",
-    "*        *            **                        *",
-    "*                    ***                        *",
-    "*                   * **                        *",
-    "*                                               *",
-    "*************************************************"
-];
-var matrizMapa = [];
+var matrizMapa;
 
+/* formulario del menu*/
 document.getElementById('start-button').addEventListener("click", menuJuego)
 
 function menuJuego() {
-
     var btnStart = document.getElementById('start-button');
     btnStart.removeAttribute('class');
     btnStart.className = 'classHidden';
@@ -83,44 +58,16 @@ function ocultarMenuTablero() {
     inicio.appendChild(tagDiv);
     document.getElementById('volverMenu').addEventListener('click', mostrarMenuTablero);
 }
-function mostrarMenuTablero(){
-var divtablero = document.getElementById('menu_tablero');
+
+function mostrarMenuTablero() {
+    var divtablero = document.getElementById('menu_tablero');
     divtablero.removeAttribute('class');
     divtablero.className = 'menuDelJuego';
 
     var hijos = inicio.childNodes;
-    while(hijos.length > 4){
+    while (hijos.length > 4) {
         inicio.removeChild(inicio.lastChild);
     }
-}
-
-function dibujarTablero() {
-    ocultarMenuTablero();
-    tagTable = document.createElement('table');
-    for (var i = 0; i < mapa.length; i++) {
-        var pared = mapa[i].split("");
-        matrizMapa.push(pared);
-        var tag_TR = document.createElement('tr');
-        for (var j = 0; j < pared.length; j++) {
-            var tag_TD = document.createElement('td');
-            tag_TD.appendChild(document.createTextNode(pared[j]));
-            tag_TD.setAttribute('id', i + "," + j);
-            var clase = '';
-            if (pared[j] == "*") {
-                clase = 'pared';
-            } else if (pared[j] == " ") {
-                clase = 'camino';
-            } else if (pared[j] == "o") {
-                clase = 'bolita';
-            } else {
-                clase = 'inicioFin';
-            }
-            tag_TD.setAttribute('class', clase);
-            tag_TR.appendChild(tag_TD);
-        }
-        tagTable.appendChild(tag_TR);
-    }
-    inicio.appendChild(tagTable);
 }
 
 function instrucciones() {
@@ -142,7 +89,8 @@ function instrucciones() {
     inicio.appendChild(tagDiv);
 
 }
-function password(){
+
+function password() {
     ocultarMenuTablero();
     var tagDiv = document.createElement('div');
     var input = document.createElement('input');
@@ -158,7 +106,8 @@ function password(){
 
     inicio.appendChild(tagDiv);
 }
-function creditos(){
+
+function creditos() {
     ocultarMenuTablero();
     var tagDiv = document.createElement('div');
     var tagP_1 = document.createElement('p');
@@ -188,6 +137,93 @@ function creditos(){
     tagDiv.appendChild(tagImg);
 
     inicio.appendChild(tagDiv);
+} /*fin del formulario del menu*/
+
+var map0 = [
+    "*************************************************",
+    "*                                               *",
+    "*                                               *",
+    "*      **o        ***                **W        *",
+    "*                 ***                 *         *",
+    "*                 *              *              *",
+    "*                 *                     *       *",
+    "*    *  *                     *   *     *       *",
+    "*     * *                    **** *             *",
+    "*     *                                 *       *",
+    "*                                      **       *",
+    "*                        **            **       *",
+    "*                         *                     *",
+    "*             ** *       ***                    *",
+    "*             ***                               *",
+    "*             **                  **            *",
+    "*      **                         **            *",
+    "*      **                         *             *",
+    "*        *            **                        *",
+    "*                    ***                        *",
+    "*                   * **                        *",
+    "*                                               *",
+    "*************************************************"
+];
+var map1 = [
+    "* * * * * * * * * * * * * * * * * * * *",
+    "* *           * * *             * *   *",
+    "* *             W                 *   *",
+    "*                           *     *   *",
+    "*         *                       *   *",
+    "*   * * * *             *         *   *",
+    "*     *     * *       *   *       *   *",
+    "*   * I o   * *         *   * * * *   *",
+    "*     *     * *   * *  **           I *",
+    "*   *          *        *         * * *",
+    "*           * ***   *   *     *   * * *",
+    "*       *      *        * *       * * *",
+    "*     * *             ***         * * *",
+    "* *   *           *     *         *   *",
+    "*     *   *      *      *     *       *",
+    "* *        *     *      *         *   *",
+    "* * * * * * * * * * * * * * * * * * * *"
+];
+
+var mapas = [map0, map1 /*, map2, map3, map4, map5, map6*/ ];
+//var mapa = mapas[6];
+
+var actualmapa = 0;
+
+function dibujarTablero() {
+    console.log(actualmapa);
+    var matrix = [];
+    var mapa = mapas[actualmapa];
+    ocultarMenuTablero();
+    var tagTable = document.createElement('table');
+    tagTable.id = 'tableroRoad';
+    for (var i = 0; i < mapa.length; i++) {
+        var pared = mapa[i].split("");
+        matrix.push(pared);
+        var tag_TR = document.createElement('tr');
+        for (var j = 0; j < pared.length; j++) {
+            var tag_TD = document.createElement('td');
+            tag_TD.appendChild(document.createTextNode(pared[j]));
+            tag_TD.setAttribute('id', i + "," + j);
+            var clase = '';
+            if (pared[j] == "*") {
+                clase = 'pared';
+            } else if (pared[j] == " ") {
+                clase = 'camino';
+            } else if (pared[j] == "o") {
+                clase = 'bolita';
+            } else if(pared[j] == "W"){
+                clase = 'inicioFin';
+            }
+            tag_TD.setAttribute('class', clase);
+            tag_TR.appendChild(tag_TD);
+        }
+        tagTable.appendChild(tag_TR);
+    }
+    inicio.appendChild(tagTable);
+    matrizMapa = matrix; //limpio matriz final
+    if (actualmapa == mapas.length - 1) {
+        actualmapa = 0;
+    }
 }
 
 //evento 
@@ -219,16 +255,32 @@ function movimiento(evento) {
 }
 var stop;
 
+// funcion mover izquierda derecha, arriba abojo
 function mover(x, y) {
     var idpadre = document.getElementsByClassName('bolita')[0].id;
     var idPapa = idpadre.split(',')
     var nuevo_x = parseInt(idPapa[0]) + x;
     var nuevo_y = parseInt(idPapa[1]) + y;
 
+    console.log(nuevo_y+".-."+nuevo_x);
+
+    /*perdiste vuelve al inicio*/
+    if (nuevo_x == '0' || nuevo_x == (matrizMapa.length - 1) || nuevo_y == '0' || nuevo_y == (matrizMapa[nuevo_x].length - 1)) {
+        console.log('perdiste');
+        console.log(matrizMapa)
+
+        var hijos = inicio.childNodes;
+        while (hijos.length > 4) {
+            inicio.removeChild(inicio.lastChild);
+        }
+        dibujarTablero();
+    }
+    /*llegaste a un bloque detenido*/
     if (matrizMapa[nuevo_x][nuevo_y] == '*') {
         clearTimeout(stop);
         return;
     }
+    /*avanza hasta llegar a un bloque*/
     if (matrizMapa[nuevo_x][nuevo_y] != '*') {
         var antiguaPosicion = document.getElementById(idpadre);
         antiguaPosicion.removeAttribute('class');
@@ -240,11 +292,19 @@ function mover(x, y) {
 
         if (matrizMapa[nuevo_x][nuevo_y] == 'W') {
             clearTimeout(stop);
+
             swal("Eres genial!", "Buen Trabajo", "success")
+            actualmapa++;
+            var hijos = inicio.childNodes;
+            while (hijos.length > 4) {
+                inicio.removeChild(inicio.lastChild);
+            }
+            dibujarTablero();
             return;
         }
     }
+    /*ejecuta nuevamente la funcion mover*/
     stop = setTimeout(function() {
         mover(x, y)
-    }, 100);
+    }, 1);
 }
